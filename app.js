@@ -25,7 +25,11 @@ function win(user, comp) {
     userScore_span.innerHTML = userScore;
     result_p.innerHTML = `${convertToWord(user) + ' (user) '.sub().fontcolor('#e2584d')} beats ${convertToWord(comp) + ' (comp) '.sub().fontcolor('#e2584d')}. You win!🔥`;
     currrentElem.classList.add('win');
-    setTimeout(() => currrentElem.classList.remove('win'), 700);
+    currrentElem.parentElement.classList.add('disabled');
+    setTimeout(() => {
+        currrentElem.parentElement.classList.remove('disabled');
+        currrentElem.classList.remove('win');
+    }, 600);
 }
 function lose(user, comp) {
     const currrentElem = document.getElementById(user)
@@ -33,13 +37,21 @@ function lose(user, comp) {
     computerScore_span.innerHTML = computerScore;
     result_p.innerHTML = `${convertToWord(user) + ' (user) '.sub().fontcolor('#e2584d')} beats ${convertToWord(comp) + ' (comp) '.sub().fontcolor('#e2584d')}. You lost!💩`;
     currrentElem.classList.add('lost');
-    setTimeout(() => currrentElem.classList.remove('lost'), 700);
+    currrentElem.parentElement.classList.add('disabled');
+    setTimeout(() => {
+        currrentElem.parentElement.classList.remove('disabled');
+        currrentElem.classList.remove('lost');
+    }, 600);
 }
 function draw(user, comp) {
     const currrentElem = document.getElementById(user)
     result_p.innerHTML = `${convertToWord(user) + ' (user) '.sub().fontcolor('#e2584d')} beats ${convertToWord(comp) + ' (comp) '.sub().fontcolor('#e2584d')}. It's a draw!🏆`;
     currrentElem.classList.add('draw');
-    setTimeout(() => currrentElem.classList.remove('draw'), 700);
+    currrentElem.parentElement.classList.add('disabled');
+    setTimeout(() => {
+        currrentElem.parentElement.classList.remove('disabled');
+        currrentElem.classList.remove('draw');
+    }, 600);
 }
 
 function game(userChoice) {

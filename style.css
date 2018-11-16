@@ -3,6 +3,7 @@
     padding: 0;
     box-sizing: border-box;
     font-family:'Asap', sans-serif;
+    color:#fff;
 }
 body {
     background: #292c34;
@@ -21,7 +22,6 @@ header > h1 {
     border: 3px solid #fff;
     border-radius: 4px;
     width: 200px;
-    color:#fff;
     font-size: 46px;
     text-align:center;
     position: relative;
@@ -41,13 +41,10 @@ header > h1 {
     top: 30px;
     right: -30px;
 }
-.result {
-    font-size: 40px;
-    color: #fff;
-}
 .result > p {
     text-align: center;
     font-weight: bold;
+    font-size: 40px;
 }
 .choices {
     text-align: center;
@@ -57,7 +54,6 @@ header > h1 {
     margin:40px 20px;
     width: 190px;
     height: 190px;
-    background: #fff;
     background:url('img/rock-paper-scissors-png-2.png') no-repeat;
     border: 5px solid #fff;
     border-radius: 50%;
@@ -77,7 +73,6 @@ header > h1 {
     background-position: -770px -35px;
 }
 #action-message {
-    color:#fff;
     font-weight: bold;
     font-size: 20px;
     text-align: center;
@@ -85,18 +80,46 @@ header > h1 {
 .win {
     box-shadow: 0 0 20px #40a119;
     border-color: #5fe62a;
-    pointer-events: none;
-    cursor: default;
 }
 .lost {
     box-shadow: 0 0 30px #b62121;
     border-color: #e03b3b;
-    pointer-events: none;
-    cursor: default;
     
 }
 .draw {
     box-shadow: 0 0 20px #fff;
+}
+.disabled {
     pointer-events: none;
     cursor: default;
+}
+
+@media screen and (max-device-width: 750px) {
+    header {
+        padding: 10px;
+    }
+    .badge {
+        font-size: 20px;
+    }
+    .result p {
+        font-size: 30px;
+    }
+    .choices {
+        margin:15px 0;
+    }
+    .choice {
+        margin:0px 10px;
+        width: 150px;
+        height: 150px;
+        background-size: 630%;
+    }
+    #r {
+        background-position: -36px -37px;
+    }
+    #p {
+        background-position: -365px -35px;
+    }
+    #s {
+        background-position: -690px -35px;
+    }
 }
