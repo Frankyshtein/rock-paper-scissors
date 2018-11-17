@@ -24,10 +24,8 @@ function win(user, comp) {
     userScore++;
     userScore_span.innerHTML = userScore;
     result_p.innerHTML = `${convertToWord(user) + ' (user) '.sub().fontcolor('#e2584d')} beats ${convertToWord(comp) + ' (comp) '.sub().fontcolor('#e2584d')}. You win!🔥`;
-    currrentElem.classList.add('win');
-    currrentElem.parentElement.classList.add('disabled');
+    currrentElem.classList.add('win');  
     setTimeout(() => {
-        currrentElem.parentElement.classList.remove('disabled');
         currrentElem.classList.remove('win');
     }, 600);
 }
@@ -37,9 +35,7 @@ function lose(user, comp) {
     computerScore_span.innerHTML = computerScore;
     result_p.innerHTML = `${convertToWord(user) + ' (user) '.sub().fontcolor('#e2584d')} beats ${convertToWord(comp) + ' (comp) '.sub().fontcolor('#e2584d')}. You lost!💩`;
     currrentElem.classList.add('lost');
-    currrentElem.parentElement.classList.add('disabled');
     setTimeout(() => {
-        currrentElem.parentElement.classList.remove('disabled');
         currrentElem.classList.remove('lost');
     }, 600);
 }
@@ -47,9 +43,7 @@ function draw(user, comp) {
     const currrentElem = document.getElementById(user)
     result_p.innerHTML = `${convertToWord(user) + ' (user) '.sub().fontcolor('#e2584d')} beats ${convertToWord(comp) + ' (comp) '.sub().fontcolor('#e2584d')}. It's a draw!🏆`;
     currrentElem.classList.add('draw');
-    currrentElem.parentElement.classList.add('disabled');
     setTimeout(() => {
-        currrentElem.parentElement.classList.remove('disabled');
         currrentElem.classList.remove('draw');
     }, 600);
 }
@@ -76,7 +70,16 @@ function game(userChoice) {
 }
 
 (function () {
-    rock_div.addEventListener('click', () => game('r'));
-    paper_div.addEventListener('click', () => game('p'));
-    scissors_div.addEventListener('click', () => game('s'));
+    rock_div.addEventListener('click', (e) => {
+        if(e.target.classList.contains('win') || e.target.classList.contains('lost') || e.target.classList.contains('draw')) {null} 
+        else {game('r')}
+    });
+    paper_div.addEventListener('click', (e) => {
+        if(e.target.classList.contains('win') || e.target.classList.contains('lost') || e.target.classList.contains('draw')) {null} 
+        else {game('p')}
+    });
+    scissors_div.addEventListener('click', (e) => {
+        if(e.target.classList.contains('win') || e.target.classList.contains('lost') || e.target.classList.contains('draw')) {null} 
+        else {game('s')}
+    });
 }());
