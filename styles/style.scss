@@ -54,7 +54,7 @@ header > h1 {
     margin:40px 20px;
     width: 190px;
     height: 190px;
-    background:url('img/rock-paper-scissors-png-2.png') no-repeat;
+    background:url('../img/rock-paper-scissors-png-2.png') no-repeat;
     border: 5px solid #fff;
     border-radius: 50%;
     background-origin: padding-box;
@@ -63,9 +63,9 @@ header > h1 {
     -moz-transition:all 0.3s;
     -ms-transition:all 0.3s;
     -o-transition:all 0.3s;
-}
-.choice:hover {
-    cursor:pointer;
+    &:hover {
+        cursor: pointer;
+    }
 }
 #r {
     background-position: -35px -35px;

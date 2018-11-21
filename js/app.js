@@ -71,15 +71,15 @@ function game(userChoice) {
 
 (function () {
     rock_div.addEventListener('click', (e) => {
-        if(e.target.classList.contains('win') || e.target.classList.contains('lost') || e.target.classList.contains('draw')) {null} 
+        if(document.querySelector('.win') || document.querySelector('.lost') || document.querySelector('.draw')) {null} 
         else {game('r')}
     });
     paper_div.addEventListener('click', (e) => {
-        if(e.target.classList.contains('win') || e.target.classList.contains('lost') || e.target.classList.contains('draw')) {null} 
+        if(document.querySelector('.win') || document.querySelector('.lost') || document.querySelector('.draw')) {null} 
         else {game('p')}
     });
     scissors_div.addEventListener('click', (e) => {
-        if(e.target.classList.contains('win') || e.target.classList.contains('lost') || e.target.classList.contains('draw')) {null} 
+        if(document.querySelector('.win') || document.querySelector('.lost') || document.querySelector('.draw')) {null} 
         else {game('s')}
     });
 }());
