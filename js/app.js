@@ -9,39 +9,42 @@ const paper_div = document.getElementById('p');
 const scissors_div = document.getElementById('s');
 
 function getComputerChoice() {
-    const choices = ['r','p','s'];
-    const randomNumber = Math.floor(Math.random()*3);
+    const choices = ['r', 'p', 's'];
+    const randomNumber = Math.floor(Math.random() * 3);
     return choices[randomNumber];
 }
 
-function convertToWord(letter){
-    if(letter === 'r') return 'Rock';
-    if(letter === 'p') return 'Paper';
+function convertToWord(letter) {
+    if (letter === 'r') return 'Rock';
+    if (letter === 'p') return 'Paper';
     return 'Scissors';
 }
+
 function win(user, comp) {
     const currrentElem = document.getElementById(user)
     userScore++;
     userScore_span.innerHTML = userScore;
     result_p.innerHTML = `${convertToWord(user) + ' (user) '.sub().fontcolor('#e2584d')} beats ${convertToWord(comp) + ' (comp) '.sub().fontcolor('#e2584d')}. You win!🔥`;
-    currrentElem.classList.add('win');  
+    currrentElem.classList.add('win');
     setTimeout(() => {
         currrentElem.classList.remove('win');
     }, 600);
 }
+
 function lose(user, comp) {
     const currrentElem = document.getElementById(user)
     computerScore++;
     computerScore_span.innerHTML = computerScore;
-    result_p.innerHTML = `${convertToWord(user) + ' (user) '.sub().fontcolor('#e2584d')} beats ${convertToWord(comp) + ' (comp) '.sub().fontcolor('#e2584d')}. You lost!💩`;
+    result_p.innerHTML = `${convertToWord(comp) + ' (comp) '.sub().fontcolor('#e2584d')} beats ${convertToWord(user) + ' (user) '.sub().fontcolor('#e2584d')}. You lost!💩`;
     currrentElem.classList.add('lost');
     setTimeout(() => {
         currrentElem.classList.remove('lost');
     }, 600);
 }
+
 function draw(user, comp) {
     const currrentElem = document.getElementById(user)
-    result_p.innerHTML = `${convertToWord(user) + ' (user) '.sub().fontcolor('#e2584d')} beats ${convertToWord(comp) + ' (comp) '.sub().fontcolor('#e2584d')}. It's a draw!🏆`;
+    result_p.innerHTML = `It's a draw!🏆 You both chose ${convertToWord(user)}.`;
     currrentElem.classList.add('draw');
     setTimeout(() => {
         currrentElem.classList.remove('draw');
@@ -50,7 +53,7 @@ function draw(user, comp) {
 
 function game(userChoice) {
     const computerChoice = getComputerChoice();
-    switch(userChoice + computerChoice) {
+    switch (userChoice + computerChoice) {
         case 'pr':
         case 'sp':
         case 'rs':
@@ -66,20 +69,30 @@ function game(userChoice) {
         case 'ss':
             draw(userChoice, computerChoice);
             break;
-    }    
+    }
 }
 
-(function () {
+(function() {
     rock_div.addEventListener('click', (e) => {
-        if(document.querySelector('.win') || document.querySelector('.lost') || document.querySelector('.draw')) {null} 
-        else {game('r')}
+        if (document.querySelector('.win') || document.querySelector('.lost') || document.querySelector('.draw')) {
+            null
+        } else {
+            game('r')
+        }
     });
     paper_div.addEventListener('click', (e) => {
-        if(document.querySelector('.win') || document.querySelector('.lost') || document.querySelector('.draw')) {null} 
-        else {game('p')}
+        if (document.querySelector('.win') || document.querySelector('.lost') || document.querySelector('.draw')) {
+            null
+        } else {
+            game('p')
+        }
     });
     scissors_div.addEventListener('click', (e) => {
-        if(document.querySelector('.win') || document.querySelector('.lost') || document.querySelector('.draw')) {null} 
-        else {game('s')}
+        if (document.querySelector('.win') || document.querySelector('.lost') || document.querySelector('.draw')) {
+            null
+        } else {
+            game('s')
+        }
     });
 }());
+console.log('')
